@@ -1,0 +1,15 @@
+:root{
+    --temp:  rgb(232,140,55);
+    --grad: linear-gradient(114deg, #e88c37 0%, rgba(188,82,218,1) 87%);
+}
+
+body{
+
+    background-color: #0C1F30;
+    overflow-x: hidden;
+    /* color: white; */
+}
+
+ul{
+    list-style-type: none;
+}
