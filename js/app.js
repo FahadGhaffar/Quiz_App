@@ -75,7 +75,7 @@ queston.innerHTML = questions[0].question;
 
 var counter = 0
 
-
+var point = 0
 
 
 
@@ -94,7 +94,19 @@ function show(counter) {
 
 function submit() {
 
+    var userAnswer = document.querySelector(".option_one.active").innerText;
+    if (userAnswer === questions[counter].answer) {
 
+        point += 10;
+
+
+    }
+
+
+
+
+
+    console.log(point)
 
 
     counter++;
@@ -102,10 +114,15 @@ function submit() {
 
 
 
+    if (counter === questions.length) {
+
+        localStorage.setItem("userpoint", point);
+    } else {
+        show(counter)
+        setcolor(4)
+    }
 
 
-    show(counter)
-    setcolor(4)
 
 
 }
@@ -160,3 +177,41 @@ function setcolor(selected) {
 //     // }
 //     console.log(a);
 // }
+
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+const signupName = document.getElementById("signupName");
+const singupEmail = document.getElementById("signupEmail");
+const signupPass = document.getElementById("signupPass");
+signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+});
+
+
+
+function signUp() {
+
+    // console.log("singup");
+    // console.log(signupName.value);
+
+    if (signupName.value != '' && singupEmail.value != '' && signupPass.value != '') {
+        localStorage.setItem('signupName', signupName.value);
+        localStorage.setItem('singupEmail', singupEmail.value);
+        localStorage.setItem('signupPass', signupPass.value);
+    }
+    else {
+        alert("Your One Of field Is Empty");
+    }
+
+}
+
+function signIn() {
+
+    console.log("signin")
+}
