@@ -185,6 +185,10 @@ const container = document.getElementById('container');
 const signupName = document.getElementById("signupName");
 const singupEmail = document.getElementById("signupEmail");
 const signupPass = document.getElementById("signupPass");
+const signinName = document.getElementById("signinName");
+const signinPass = document.getElementById("signinPass");
+const welcome_msg = document.getElementById("welcome_msg");
+const swap_slider_signup = document.getElementById("swap_slider_signup");
 signUpButton.addEventListener('click', () => {
     container.classList.add("right-panel-active");
 });
@@ -199,11 +203,18 @@ function signUp() {
 
     // console.log("singup");
     // console.log(signupName.value);
+    // this.addEventListener('click', () => {
+    //    
+    // });
+
+    // console.log(container.classList.remove("right-panel-active"));
 
     if (signupName.value != '' && singupEmail.value != '' && signupPass.value != '') {
         localStorage.setItem('signupName', signupName.value);
         localStorage.setItem('singupEmail', singupEmail.value);
         localStorage.setItem('signupPass', signupPass.value);
+        container.classList.remove("right-panel-active");
+
     }
     else {
         alert("Your One Of field Is Empty");
@@ -213,5 +224,14 @@ function signUp() {
 
 function signIn() {
 
+    if (localStorage.getItem("singupEmail") === signinName.value && localStorage.getItem("signupPass") === signinPass.value) {
+
+
+        container.classList.add('display_none');
+
+    }
+
     console.log("signin")
 }
+
+welcome_msg.innerText = localStorage.getItem('signupName');
